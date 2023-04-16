@@ -19,12 +19,15 @@ export class UsersDao {
     });
   }
 
-
   public async findWithPasswordByUsername(username: string): Promise<User> {
     return this.repositories.userRepository
       .createQueryBuilder('user')
       .addSelect('user.password')
       .where({ username })
       .getOne();
+  }
+
+  public async findAll(): Promise<User[]> {
+    return this.repositories.userRepository.find();
   }
 }
