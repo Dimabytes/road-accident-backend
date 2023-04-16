@@ -1,10 +1,12 @@
-import { Repository } from 'typeorm';
+import { Between, Repository } from 'typeorm';
 import { getAppDataSource } from '../../orm/dataSource';
 import { RoadAccident } from './entities/roadAccident.entity';
 import { Car } from '../cars/entities/car.entity';
 import { AccidentParticipant } from '../accidentParticipants/entities/accidentParticipant.entity';
 import { CreateRoadAccidentDto } from './dto/create-roadAccident.dto';
 import { UpdateRoadAccidentDto } from './dto/update-roadAccident.dto';
+import { FindRoadAccidentFilterDto } from './dto/find-roadAccident-filter.dto';
+import { getOptionalDateWhere } from '../../utils/getOptionalDateWhere';
 
 type Repositories = {
   roadAccidentRepository: Repository<RoadAccident>;
@@ -89,6 +91,31 @@ export class RoadAccidentsDao {
         trafficPoliceOfficer: true,
         accidentCars: true,
         accidentParticipants: true,
+      },
+    });
+  }
+
+  public async findAllByFilter(
+    filter: FindRoadAccidentFilterDto,
+  ): Promise<RoadAccident[]> {
+    console.log(filter);
+    return this.repositories.roadAccidentRepository.find({
+      relations: {
+        trafficPoliceOfficer: true,
+        accidentCars: true,
+        accidentParticipants: true,
+      },
+      where: {
+        accidentType: filter.accidentType && {
+          id: filter.accidentType,
+        },
+        trafficPoliceOfficer: filter.trafficPoliceOfficerId && {
+          id: filter.trafficPoliceOfficerId,
+        },
+        accidentDatetime: getOptionalDateWhere(
+          filter.accidentDatetimeStart,
+          filter.accidentDatetimeEnd,
+        ),
       },
     });
   }

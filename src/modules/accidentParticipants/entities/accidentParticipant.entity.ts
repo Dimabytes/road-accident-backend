@@ -9,6 +9,7 @@ export class AccidentParticipant {
 
   @ManyToOne(() => ParticipantCategory, {
     nullable: false,
+    eager: true,
   })
   participantCategory: ParticipantCategory;
 

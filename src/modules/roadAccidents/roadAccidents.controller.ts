@@ -8,6 +8,7 @@ import {
   OnModuleInit,
   UseGuards,
   Request,
+  Query,
 } from '@nestjs/common';
 import { CreateRoadAccidentDto } from './dto/create-roadAccident.dto';
 import { UpdateRoadAccidentDto } from './dto/update-roadAccident.dto';
@@ -15,6 +16,7 @@ import { RoadAccident } from './entities/roadAccident.entity';
 import { RoadAccidentsDao } from './roadAccidents.dao';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from 'src/modules/auth/jwt-auth.guard';
+import { FindRoadAccidentFilterDto } from './dto/find-roadAccident-filter.dto';
 
 @ApiTags('roadAccidents')
 @Controller('roadAccidents')
@@ -36,8 +38,8 @@ export class RoadAccidentsController implements OnModuleInit {
   }
 
   @Get()
-  findAll(): Promise<RoadAccident[]> {
-    return this.roadAccidentDao.findAll();
+  findAll(@Query() data: FindRoadAccidentFilterDto): Promise<RoadAccident[]> {
+    return this.roadAccidentDao.findAllByFilter(data);
   }
 
   @Get(':id')

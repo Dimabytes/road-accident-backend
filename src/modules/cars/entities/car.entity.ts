@@ -20,36 +20,43 @@ export class Car {
 
   @ManyToOne(() => VehicleType, {
     nullable: false,
+    eager: true,
   })
   vehicleType: VehicleType;
 
   @ManyToOne(() => VehicleCategory, {
     nullable: false,
+    eager: true,
   })
   vehicleCategory: VehicleCategory;
 
   @ManyToOne(() => SteeringWheelPosition, {
     nullable: false,
+    eager: true,
   })
   steeringWheelPosition: SteeringWheelPosition;
 
   @ManyToOne(() => TypeOfDrive, {
     nullable: false,
+    eager: true,
   })
   typeOfDrive: TypeOfDrive;
 
   @ManyToOne(() => ControlType, {
     nullable: false,
+    eager: true,
   })
   controlType: ControlType;
 
   @ManyToOne(() => EngineType, {
     nullable: false,
+    eager: true,
   })
   engineType: EngineType;
 
   @ManyToOne(() => TireType, {
     nullable: false,
+    eager: true,
   })
   tireType: TireType;
 
@@ -88,11 +95,13 @@ export class Car {
 
   @ManyToOne(() => Country, {
     nullable: false,
+    eager: true,
   })
   manufacturerCountry: Country;
 
   @ManyToOne(() => Country, {
     nullable: false,
+    eager: true,
   })
   registrationCountry: Country;
 
@@ -167,6 +176,7 @@ export class Car {
 
   @ManyToOne(() => OwnershipForm, {
     nullable: false,
+    eager: true,
   })
   ownershipForm: OwnershipForm;
 

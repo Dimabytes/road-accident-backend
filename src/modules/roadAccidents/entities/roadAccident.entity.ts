@@ -32,16 +32,19 @@ export class RoadAccident {
 
   @ManyToOne(() => AccidentType, {
     nullable: false,
+    eager: true,
   })
   accidentType: AccidentType;
 
   @ManyToOne(() => SettlementStatus, {
     nullable: false,
+    eager: true,
   })
   settlementStatus: SettlementStatus;
 
   @ManyToOne(() => SettlementType, {
     nullable: false,
+    eager: true,
   })
   settlementType: SettlementType;
 
@@ -53,11 +56,13 @@ export class RoadAccident {
 
   @ManyToOne(() => StreetCategory, {
     nullable: false,
+    eager: true,
   })
   streetCategory: StreetCategory;
 
   @ManyToOne(() => RoadCategory, {
     nullable: false,
+    eager: true,
   })
   road: RoadCategory;
 
@@ -96,11 +101,13 @@ export class RoadAccident {
 
   @ManyToOne(() => CoverType, {
     nullable: false,
+    eager: true,
   })
   coverType: CoverType;
 
   @ManyToOne(() => DividerType, {
     nullable: false,
+    eager: true,
   })
   dividerType: DividerType;
 
@@ -118,16 +125,19 @@ export class RoadAccident {
 
   @ManyToOne(() => HorizontalMarkup, {
     nullable: false,
+    eager: true,
   })
   horizontalMarkup: HorizontalMarkup;
 
   @ManyToOne(() => TemporaryMarkup, {
     nullable: false,
+    eager: true,
   })
   temporaryMarkup: TemporaryMarkup;
 
   @ManyToOne(() => VerticalMarkup, {
     nullable: false,
+    eager: true,
   })
   verticalMarkup: VerticalMarkup;
 
@@ -136,6 +146,7 @@ export class RoadAccident {
 
   @ManyToOne(() => CrossingCategory, {
     nullable: false,
+    eager: true,
   })
   crossingCategory: CrossingCategory;
 

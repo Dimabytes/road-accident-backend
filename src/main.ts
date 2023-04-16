@@ -8,7 +8,7 @@ async function bootstrap(): Promise<void> {
   await initializeDataSources();
 
   const app = await NestFactory.create(AppModule);
-  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalPipes(new ValidationPipe({ transform: true }));
   const config = new DocumentBuilder()
     .setTitle('Система учета ДТП')
     .setVersion('1.0')
