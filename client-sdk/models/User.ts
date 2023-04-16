@@ -2,33 +2,16 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { Group } from './Group';
+import type { RoadAccident } from './RoadAccident';
 
 export type User = {
     id: string;
-    firstName: string;
-    lastName: string;
-    middleName: string;
-    achievements: string;
-    education: string;
-    email: string;
+    name: string;
+    department: string;
+    username: string;
     password: string;
-    dateOfBirth: string;
-    athleteGroups: Array<Group>;
-    trainerGroups: Array<Group>;
-    role: User.role;
+    roadAccidents: Array<RoadAccident>;
     createdAt?: string;
     updatedAt?: string;
 };
-
-export namespace User {
-
-    export enum role {
-        TRAINER = 'TRAINER',
-        ATHLETE = 'ATHLETE',
-        ADMIN = 'ADMIN',
-    }
-
-
-}
 

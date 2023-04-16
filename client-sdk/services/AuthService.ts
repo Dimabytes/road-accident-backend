@@ -3,7 +3,6 @@
 /* eslint-disable */
 import type { JWTDto } from '../models/JWTDto';
 import type { LoginDto } from '../models/LoginDto';
-import type { UserWithoutPassword } from '../models/UserWithoutPassword';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
@@ -24,17 +23,6 @@ export class AuthService {
             url: '/auth/login',
             body: requestBody,
             mediaType: 'application/json',
-        });
-    }
-
-    /**
-     * @returns UserWithoutPassword
-     * @throws ApiError
-     */
-    public static authControllerGetProfile(): CancelablePromise<UserWithoutPassword> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/auth/profile',
         });
     }
 

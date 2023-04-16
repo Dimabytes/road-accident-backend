@@ -2,32 +2,15 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { Group } from './Group';
+import type { RoadAccident } from './RoadAccident';
 
 export type UserWithoutPassword = {
     id: string;
-    firstName: string;
-    lastName: string;
-    middleName: string;
-    achievements: string;
-    education: string;
-    email: string;
-    dateOfBirth: string;
-    athleteGroups: Array<Group>;
-    trainerGroups: Array<Group>;
-    role: UserWithoutPassword.role;
+    name: string;
+    department: string;
+    username: string;
+    roadAccidents: Array<RoadAccident>;
     createdAt?: string;
     updatedAt?: string;
 };
-
-export namespace UserWithoutPassword {
-
-    export enum role {
-        TRAINER = 'TRAINER',
-        ATHLETE = 'ATHLETE',
-        ADMIN = 'ADMIN',
-    }
-
-
-}
 
